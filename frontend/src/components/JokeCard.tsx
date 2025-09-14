@@ -1,9 +1,9 @@
 import type { Joke } from "../types/Joke";
 
-export function JokeCard({jokes}: {jokes: Joke[]} ) {
+export function JokeCard({joke}: {joke: Joke | undefined} ) {
     return (
         <div>
-            Joke
+            {joke ? joke.setup : 'Press the button to see a joke'}
         </div>
     )
 }
