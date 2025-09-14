@@ -2,7 +2,7 @@ export function Header() {
     return (
         <header>
             <h1>
-                Random Joke Selector
+                Random Joke Generator
             </h1>
         </header>
     )
