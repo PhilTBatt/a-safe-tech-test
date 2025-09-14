@@ -1,11 +1,8 @@
 import { Router } from 'express';
-import { Joke } from '../models/joke';
+import { getJokes } from '../controllers/jokes';
 
 const router = Router()
-let jokes: Joke[] = []
 
-router.get('/', (req, res) => {
-  res.json(jokes)
-})
+router.get('/', getJokes)
 
 export default router
