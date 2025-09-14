@@ -32,7 +32,8 @@ export function JokeSection() {
             <JokeCard joke={currentJoke} jokeStage={jokeStage}/>
 
             <button onClick={buttonClick}>
-                Funny Button
+                {jokeStage === -1 ? 'Funny Button' : 
+                jokeStage === 0 ? 'Punchline' : 'Next Joke'}
             </button>
         </section>
     )
