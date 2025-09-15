@@ -18,5 +18,5 @@ app.use((req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Server is Fire at http://localhost:${port}`)
+    console.log(`Server is Fire at http://localhost:${port}/api`)
 })
