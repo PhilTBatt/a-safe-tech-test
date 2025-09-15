@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: joke_container
+    restart: always
+    environment:
+      POSTGRES_DB: jokes_db
+      POSTGRES_USER: jokes_user
+      POSTGRES_PASSWORD: jokes_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    image: node:20
+    container_name: backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    command: sh -c "npm install && npm run seed && npm run dev"
+    environment:
+      DATABASE_URL: postgres://jokes_user:jokes_password@postgres:5432/jokes_db
+      PORT: 8000
+    depends_on:
+      - postgres
+
+  frontend:
+    image: node:20
+    container_name: frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "5173:5173"
+    command: sh -c "npm install && npm run dev -- --host"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
