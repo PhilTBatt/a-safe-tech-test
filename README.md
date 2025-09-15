@@ -18,7 +18,7 @@ This is a tech test for A-SAFE
  1. Open your terminal and run the following command to clone the repository to your local machine:  
 `git clone https://github.com/PhilTBatt/a-safe-tech-test`
 
-2. Navigate into the cloned repository and start the app with Docker Compose:  
+2. Navigate into the cloned repository and start the app with Docker Compose (make sure Docker is running):  
 `docker-compose up`
 
 3. To access the app, open your browser at:  
